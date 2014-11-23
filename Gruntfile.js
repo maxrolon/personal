@@ -115,6 +115,12 @@ var _              = require('lodash'),
                     ],
                     tasks: ['css']
                 },
+                sass_theme: {
+                    files: [
+                        'content/themes/maxrolon/assets/scss/**/*.scss'
+                    ],
+                    tasks: ['css_theme']
+                },
                 livereload: {
                     files: [
                         'content/themes/casper/assets/css/*.css',
@@ -320,6 +326,13 @@ var _              = require('lodash'),
                         {dest: path.resolve('core/client/assets/css/<%= pkg.name %>.min.css'), src: path.resolve('core/client/assets/sass/screen.scss')},
                         {dest: path.resolve('core/client/docs/dist/css/<%= pkg.name %>.min.css'), src: path.resolve('core/client/assets/sass/screen.scss')}
                     ]
+                },
+                theme: {
+                    options: {
+                        outputStyle: 'compressed', // TODO: Set back to 'compressed' working correctly with our dependencies
+                        sourceMap: true
+                    },
+                    files: {'content/themes/maxrolon/assets/css/screen.css':'content/themes/maxrolon/assets/scss/styles.scss'}
                 }
             },
 
@@ -338,6 +351,10 @@ var _              = require('lodash'),
                 docs: {
                     src: 'core/client/docs/dist/css/<%= pkg.name %>.min.css',
                     dest: 'core/client/docs/dist/css/<%= pkg.name %>.min.css'
+                },
+                theme: {
+                    src: 'content/themes/maxrolon/assets/css/screen.css',
+                    dest: 'content/themes/maxrolon/assets/css/screen.css'
                 }
             },
 
@@ -945,6 +962,10 @@ var _              = require('lodash'),
         // Build the CSS files from the SCSS files
         grunt.registerTask('css', 'Build Client CSS',
             ['sass', 'autoprefixer']);
+            
+        // ### Theme build CSS
+        grunt.registerTask('css_theme', 'Build Theme CSS',
+            ['sass:theme', 'autoprefixer:theme']);
 
         // ### Build About Page *(Utility Task)*
         // Builds the github contributors partial template used on the Settings/About page,
@@ -1026,7 +1047,7 @@ var _              = require('lodash'),
         //
         // It is otherwise the same as running `grunt`, but is only used when running Ghost in the `production` env.
         grunt.registerTask('prod', 'Build JS & templates for production',
-            ['concat:prod', 'copy:prod', 'emberBuildProd', 'uglify:prod', 'master-warn']);
+            ['concat:prod', 'copy:prod', 'emberBuildProd', 'uglify:prod']);
 
         // ### Default asset build
         // `grunt` - default grunt task
