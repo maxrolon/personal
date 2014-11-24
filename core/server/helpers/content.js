@@ -18,7 +18,33 @@ content = function (options) {
     _.keys(truncateOptions).map(function (key) {
         truncateOptions[key] = parseInt(truncateOptions[key], 10);
     });
-
+    
+    /**
+     * As a user can insert a custom excerpt inside 
+     * <excerpt> </excerpt>, the two lines below strip
+     * out the excerpt from the content
+     *
+     */
+    
+    /*jslint regexp:true */
+    var noExcerpt = String(this.html).replace(/<excerpt[^>]*>([\s\S]*?)<\/excerpt>/gm,'');
+    this.html = noExcerpt;
+    /*jslint regexp:false */
+    
+    /**
+     * Lines below look for the first image in the content
+     * and inserts HTML to separate the text into a child element
+     *
+     */
+    var imgPos = String(this.html).indexOf('<p><img');
+    if (imgPos >= 0){
+      var text = '<div class="text">' + String(this.html).substring(0, imgPos-1) + '</div>';
+      var img  = String(this.html).substring(imgPos, String(this.html).length);
+      this.html = text + img;
+    }
+    
+    
+    
     if (truncateOptions.hasOwnProperty('words') || truncateOptions.hasOwnProperty('characters')) {
         // Legacy function: {{content words="0"}} should return leading tags.
         if (truncateOptions.hasOwnProperty('words') && truncateOptions.words === 0) {
@@ -31,7 +57,8 @@ content = function (options) {
             downsize(this.html, truncateOptions)
         );
     }
-
+    
+    
     return new hbs.handlebars.SafeString(this.html);
 };
 

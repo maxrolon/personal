@@ -20,12 +20,13 @@ excerpt = function (options) {
     });
 
     /*jslint regexp:true */
-    excerpt = String(this.html).replace(/<\/?[^>]+>/gi, '');
-    excerpt = excerpt.replace(/(\r\n|\n|\r)+/gm, ' ');
+    excerpt = String(this.html).match(/<excerpt[^>]*>([\s\S]*?)<\/excerpt>/);
+    excerpt = excerpt ? excerpt[1] : String(this.html).replace(/<\/?[^>]+>/gi, '');
+    excerpt = String(excerpt).replace(/(\r\n|\n|\r)+/gm, ' ');
     /*jslint regexp:false */
 
     if (!truncateOptions.words && !truncateOptions.characters) {
-        truncateOptions.words = 50;
+        truncateOptions.words = 9999;
     }
 
     return new hbs.handlebars.SafeString(
