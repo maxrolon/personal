@@ -1,0 +1,15 @@
+/*
+ * Shared Modules
+ * Pulling in from root dir
+ *
+ */
+ 
+@import "variables.scss";
+@import "inc/normalize.scss";
+@import "inc/mixins.scss";
+@import "inc/fonts.scss";
+@import "partials/global.scss";
+@import "partials/_header.scss";
+@import "partials/_footer.scss";
+@import "partials/_index.scss";
+@import "partials/_single.scss";

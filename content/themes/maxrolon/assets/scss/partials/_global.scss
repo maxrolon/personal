@@ -1,0 +1,97 @@
+html, body{
+	height: 100%;
+}
+
+html, body, .wrapper, main{ 
+	width: 100%;
+	position: relative;
+	background-color:$body-bg;
+}
+
+body{
+	position: relative;
+	background-position: center center;
+	background-size: cover;
+	color:$text-color;
+	overflow:auto;
+	-webkit-overflow-scrolling: touch;
+	font-family: $sansFontFamily;
+	font-size: $font-size-base;
+	font-weight: $type-weight-base;
+	line-height: $line-height-base;
+	letter-spacing: 0.015em;
+	@include font-smoothing(true);
+	vertical-align: baseline;
+	&.overflow{overflow: hidden}
+}
+
+.inline{display: inline}
+
+.wrapper{
+  min-height: 100%;
+  margin-bottom: -300px;
+  padding-bottom: 300px;
+  background-color: transparent;
+}
+
+img{
+	width: 100%;
+	height:auto;
+	outline: 0;
+}
+
+*{box-sizing: border-box}
+
+
+/**
+ * ==============================
+ * Colors
+ * ==============================
+ */
+
+.black{color:$text-color !important}
+
+/**
+ * ==============================
+ * Link styles
+ * ==============================
+ */
+
+a{
+	color:$link-color;
+	text-decoration: none;
+	outline: none;
+	
+	&:hover{
+		color:$link-hover-color;
+		text-decoration: none;
+		outline: none;
+	}
+} 
+
+a:focus, a:active, a:visited {outline:none;text-decoration: none}
+::-moz-focus-inner {border:0;}
+
+/**
+ * ==============================
+ * Typography
+ * ==============================
+ */
+
+ul,li{padding: 0px;margin: 0px;list-style-type: none;}
+
+h1{font-size: $font-size-h1;line-height:$line-height-h1;font-weight: bold;}
+h2{font-size: $font-size-h2;line-height:$line-height-h2;font-weight: bold;}
+h3{font-size: $font-size-h3;line-height:$line-height-h3}
+h4{font-size: $font-size-h4;line-height:$line-height-h4;font-weight: bold;}
+h5{font-size: $font-size-h5;line-height:$line-height-h5}
+h6{font-size: $font-size-h6;line-height:$line-height-h6;font-weight: 100;}
+
+h6,input[type="submit"],.secondary-font{font-family: $headlineFontFamily}
+
+/**
+ * ==============================
+ * Typography : Margins
+ * ==============================
+ */
+p{margin: 1.2em 0}

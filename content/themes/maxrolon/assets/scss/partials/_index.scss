@@ -1,0 +1,53 @@
+.home-template .content{
+  max-width: 930px;
+  margin: 30px auto;
+  text-align: justify;
+  
+  article{
+    max-width: 290px;
+    text-align: left;
+    background: $blueDark;
+    
+    > a{
+      display: block;
+      
+      &:hover{
+        time,p{color:$blue}
+      }
+    }
+    
+    a,p,span,i{color:#fff}
+  }
+  
+  .thumbnail{
+    width:100%;
+    display: block;
+    padding-top: 60%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .post-excerpt{
+    padding: 20px;
+    
+    p{margin: 0}
+  }
+  
+  time{font-weight: bold}
+  
+  footer{
+    padding: 0 20px 20px;
+    
+    span{float: right}
+  }
+}
+
+/**
+ * ==============================
+ * transitions
+ * ==============================
+ */
+.content article{
+  time,p{transition: color 0.3s linear 0s}
+}

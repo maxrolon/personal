@@ -1,0 +1,44 @@
+@mixin mr-transition-excerpt(){
+	-webkit-transition: text-shadow 0.5s linear 0, color 0.5s linear 0, opacity 0.5s linear 0s, max-height 1s ease 0;
+     -moz-transition: text-shadow 0.5s linear 0, color 0.5s linear 0, opacity 0.5s linear 0s, max-height 1s ease 0;
+       -o-transition: text-shadow 0.5s linear 0, color 0.5s linear 0, opacity 0.5s linear 0s, max-height 1s ease 0;
+          transition: text-shadow 0.5s linear 0, color 0.5s linear 0, opacity 0.5s linear 0s, max-height 1s ease 0;}
+          
+@mixin mr-transition-content(){
+	-webkit-transition: text-shadow 1s linear 2s, color 1s linear 2s, max-height 3s ease 1s;
+     -moz-transition: text-shadow 1s linear 2s, color 1s linear 2s, max-height 3s ease 1s;
+       -o-transition: text-shadow 1s linear 2s, color 1s linear 2s, max-height 3s ease 1s;
+          transition: text-shadow 1s linear 2s, color 1s linear 2s,  max-height 3s ease 1s}
+          
+          
+@mixin absolute-center(){
+	position: absolute;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	left:0px;
+	margin: auto;
+}
+
+@mixin cb-custom-scroll(){
+	&::-webkit-scrollbar              { background: rgba(255,255,255,0.1);}
+	&::-webkit-scrollbar-track        { background: rgba(255,255,255,0.1);}
+	&::-webkit-scrollbar-track-piece  { background: rgba(255,255,255,0.1);}
+	&::-webkit-scrollbar-thumb        { background: #000;}
+}
+
+@mixin font-smoothing($a){
+	
+	@if $a == true{
+		
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		
+	} @else {
+		
+		-webkit-font-smoothing: subpixel-antialiased;
+		-moz-osx-font-smoothing: auto;
+		
+	}
+
+}
