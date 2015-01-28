@@ -38,7 +38,7 @@ content = function (options) {
      */
     var imgPos = String(this.html).indexOf('<p><img');
     if (imgPos >= 0){
-      var text = '<div class="text">' + String(this.html).substring(0, imgPos-1) + '</div>';
+      var text = '<div class="text transparent">' + String(this.html).substring(0, imgPos-1) + '</div>';
       var img  = String(this.html).substring(imgPos, String(this.html).length);
       this.html = text + img;
     }
@@ -58,6 +58,8 @@ content = function (options) {
         );
     }
     
+    
+    this.html = String(this.html).replace(/(<p><\/p>)+/gm, '');
     
     return new hbs.handlebars.SafeString(this.html);
 };

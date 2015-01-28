@@ -1,14 +1,73 @@
 .post-template .content{
-  max-width: 450px;
-  margin: auto;
-  
-  .post-header{
-    margin: 20px auto;
-  }
-  
-  img{
-    width: 140%;
-    margin-left: -20%;
-    
-  }
+	max-width: 450px;
+	margin: 45px auto 0;
+	
+	.post-header{
+		margin: 0 auto;
+		padding-top: 60px;
+	}
+	
+	h1{margin: 0 0 4px}
+	
+	.post-meta{
+		color:$link-color;
+		font-weight: 700;
+		margin-bottom: 20px;
+	}
+	
+	img{
+		width: 140%;
+		margin-left: -20%;
+		display: inline-block;
+	}
+	
+	.text + p{margin-top: 65px}
+	
+	.excerpt{
+		text-shadow: 0 0 0 #fff;
+		color: #000;
+		opacity: 1;
+		overflow: hidden;
+		max-height: 200px;
+		margin: 0;
+		
+		&.show{
+			text-shadow:0 0 4px $blueDark;
+			color: transparent;
+			opacity: 0;
+			max-height: 0;
+		}
+	}
+	
+	.text{
+		&.transparent{
+			overflow: hidden;
+			max-height: 0;
+			color: transparent;
+			text-shadow:0 0 4px $blueDark;
+		}
+		&.show{
+			text-shadow: 0 0 0;
+			color: #000;
+			max-height: 3000px;
+			margin-top: -40px;
+		}
+	}
+	
+	.count{
+		opacity: 1;
+		text-decoration: underline;
+		font-weight: 700;
+		display: inline-block;
+	
+		&.show{
+			opacity: 0;
+			max-height: 0;
+		}	
+	}
+	
+	.excerpt{transition: text-shadow 0.5s linear 0, color 0.5s linear 0, opacity 0.5s linear 0s, max-height 0.5s ease 0}
+	.text{transition: margin 1s cubic-bezier(.32,.71,.66,1.03) 0.5s,text-shadow 0.5s linear 0.6s, color 0.5s linear 0.6s, opacity 0.5s linear 0.6s, max-height 2s ease 0.6s}
+	.count{transition: opacity 0.2s linear 0s, max-height 0.5s linear 0.2s}
+	
 }

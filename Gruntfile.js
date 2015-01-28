@@ -116,6 +116,9 @@ var _              = require('lodash'),
                     tasks: ['css']
                 },
                 sass_theme: {
+                    options: {
+                        livereload: true
+                    },
                     files: [
                         'content/themes/maxrolon/assets/scss/**/*.scss'
                     ],

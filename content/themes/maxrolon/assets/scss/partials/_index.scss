@@ -1,12 +1,26 @@
 .home-template .content{
+  width: 100%;
   max-width: 930px;
   margin: 30px auto;
   text-align: justify;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 100ms linear 0s, transform 300ms linear 0s;
+  transform: translateY(5px);
+  
+  &.show{
+	  opacity: 1;
+	  transform: translateY(0);
+  }
   
   article{
-    max-width: 290px;
+    width: 290px;
+    min-height: 500px;
     text-align: left;
     background: $blueDark;
+    margin: 0 10px 20px;
+    padding: 0 0 60px;
+    position: relative;
     
     > a{
       display: block;
@@ -37,7 +51,10 @@
   time{font-weight: bold}
   
   footer{
+    width: 100%;
     padding: 0 20px 20px;
+    position: absolute;
+    bottom: 0;
     
     span{float: right}
   }
@@ -50,4 +67,16 @@
  */
 .content article{
   time,p{transition: color 0.3s linear 0s}
+}
+
+/**
+ * ==============================
+ * transitions
+ * ==============================
+ */
+@media screen and (max-width: 480px){
+	.home-template .content{
+		width: 310px;
+	}
+	
 }
