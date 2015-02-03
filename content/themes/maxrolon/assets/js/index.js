@@ -4,7 +4,9 @@ jQuery(document).ready(function($){
 		init: function(){
 				$(document).scroll(this.header);
 				this.isotope();
-				app.wordcount();
+				this.scrollTop();
+				this.wordcount();
+				
 		},
 		header: function(){
 			if($(window).scrollTop() > 50){ 
@@ -38,7 +40,7 @@ jQuery(document).ready(function($){
 			});
 		},
 		isotope: function(){
-			var $el = $('.home-template #content');
+			var $el = $('#content');
 			if ($el.length){
 				$el.isotope({
 					itemSelector: '.post',
@@ -50,6 +52,11 @@ jQuery(document).ready(function($){
 					$el.addClass('show');
 				}, 50);
 			}
+		},
+		scrollTop: function(){
+		 $('.up').on('click',function(){
+			 $('html, body').animate({scrollTop:0});
+		 })
 		}
 	}
 	app.init();
