@@ -11,6 +11,9 @@ pids
 logs
 results
 
+content/images
+content/data/ghost-dev.db
+
 npm-debug.log
 node_modules
 bower_components
