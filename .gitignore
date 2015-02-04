@@ -13,6 +13,7 @@ results
 
 content/images
 content/data/ghost-dev.db
+config.js
 
 npm-debug.log
 node_modules
