@@ -44,6 +44,8 @@ img{
 
 *{box-sizing: border-box}
 
+.mobile-only{display: none}
+
 
 /**
  * ==============================
@@ -98,3 +100,16 @@ h6,input[type="submit"],.secondary-font{font-family: $headlineFontFamily}
  */
 h1{margin: 0 0 10px}
 p{margin: 1.2em 0}
+
+/**
+ * ==============================
+ * Responsive
+ * ==============================
+ */
+@media (max-width:$screen-xs){
+	.mobile-only{display: block}	
+		
+	.wrapper{
+		margin-top: 0;
+	} 
+} 

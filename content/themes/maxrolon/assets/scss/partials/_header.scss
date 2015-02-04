@@ -12,7 +12,7 @@
 	z-index: 10;
 	transition: height 200ms cubic-bezier(.75,.89,.69,.81) 0s;
 	transition-property: height, padding;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid rgba(255,255,255,0.2);
 	
 	&.scrolled{
 		height:100px;
@@ -50,8 +50,12 @@
 }
 
 @media (max-width:$screen-xs){
- .header h1:before{
-	 font-size: 1.6em;
-	 text-indent: -20px;
- }
+ .header{
+	 position: static;
+	 border:0;
+	 h1:before{
+		 font-size: 1.6em;
+		 text-indent: -20px;
+	 }
+ } 
 } 

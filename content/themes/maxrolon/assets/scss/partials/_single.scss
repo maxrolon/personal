@@ -93,3 +93,11 @@
 	}
  }
 }
+
+@media (max-width:$screen-xs){
+ .post-template{
+	 //.wrapper{margin-top: 130px}
+	 .post-header{padding-top: 0}
+	 .text + p img:first-child{display: none}
+ } 
+}

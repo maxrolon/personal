@@ -14,10 +14,15 @@ var hbs             = require('express-hbs'),
 
 content = function (options) {
     var truncateOptions = (options || {}).hash || {};
-    truncateOptions = _.pick(truncateOptions, ['words', 'characters']);
+    truncateOptions = _.pick(truncateOptions, ['words', 'characters','imageOnly']);
     _.keys(truncateOptions).map(function (key) {
         truncateOptions[key] = parseInt(truncateOptions[key], 10);
     });
+    
+    if (truncateOptions.imageOnly){
+	    var img = String(this.html).match(/<img[^>]*([\s\S]*?)>/);
+	    return new hbs.handlebars.SafeString(img[0]);
+    }
     
     /**
      * As a user can insert a custom excerpt inside 

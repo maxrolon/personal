@@ -1,6 +1,5 @@
 {{!< default}}
 
-
 <header class="header">
  <a href="{{@blog.url}}">
 	  <h1 class="icon-maxrolon"><i>Max Rolon</i></h1>
@@ -10,6 +9,10 @@
 
 {{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
+
+<div class="mobile-only">
+	{{content imageOnly="1"}}
+</div>
 
 <main class="content" role="main">
   <article class="{{post_class}}">
