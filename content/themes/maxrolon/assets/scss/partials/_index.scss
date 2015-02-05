@@ -46,11 +46,17 @@
 	  
 	  .post-excerpt{
 	    padding: 20px;
-	    
+	    p.bold{
+		    font-weight: 700;
+		    margin-top: 6px;
+		   }
 	    p{margin: 0}
 	  }
 	  
-	  time{font-weight: bold}
+	  time{
+		  font-weight: bold;
+		  color:$blue;
+		 }
 	  
 	  footer{
 	    width: 100%;

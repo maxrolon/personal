@@ -59,6 +59,11 @@
 		text-decoration: underline;
 		font-weight: 700;
 		display: inline-block;
+		opacity: 0;
+	
+		&.init-show{
+			opacity: 1;
+		}
 	
 		&.show{
 			opacity: 0;
@@ -95,9 +100,9 @@
 }
 
 @media (max-width:$screen-xs){
- .post-template{
+ .post-template .content{
 	 //.wrapper{margin-top: 130px}
-	 .post-header{padding-top: 0}
+	 .post-header{padding-top: 10px}
 	 .text + p img:first-child{display: none}
  } 
 }

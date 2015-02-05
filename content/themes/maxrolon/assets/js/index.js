@@ -33,10 +33,12 @@ jQuery(document).ready(function($){
 			var contentMatch= contentText.match(/[0-9a-zA-z\.]?[\ ][0-9a-zA-z\.]/g);
 			var differenceValue = (excerptMatch && contentMatch ? contentMatch.length - excerptMatch.length : 0);
 			$el.display.html(differenceValue);
+			if (differenceValue) $el.anchor.addClass('init-show');
 			
 			$el.anchor.on('click',function(){
 				var els = [$el.excerpt[0],$el.anchor[0],$el.content[0]];
 				$(els).addClass('show');
+				
 			});
 		},
 		isotope: function(){
