@@ -91,23 +91,19 @@
 }
 
 @media (max-width:$screen-sm){
- .post-template .content{
-	 width: 100%;
-	 padding: 0 20px;
-	 //.excerpt, .count, .transperant,.post-header{padding-left:20px;padding-right: 20px;}
-	 
-	 img{
-		 width: 100%;
-		 margin-left: 0;
-	}
- }
-}
-
-@media (max-width:$screen-xs){
- .post-template .content{
-	 //.wrapper{margin-top: 130px}
-	 .post-header{padding-top: 10px}
-	 .text + p img:first-child{display: none}
-	 
- } 
+ .post-template{
+	 .wrapper{margin-top: 0}
+	 .content{
+			width: 100%;
+			padding: 0 20px;
+		
+			.post-header{padding-top: 10px}
+			.text + p img:first-child{display: none}
+		 
+			img{
+				width: 100%;
+				margin-left: 0;
+			}
+		}
+	} 
 }
