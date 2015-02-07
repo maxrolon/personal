@@ -114,6 +114,35 @@
 } 
 
 @media (max-width:$screen-sm){
- .home-template .content{width:290px}
+	.home-template, .archive-template, .tag-template{ 
+		.wrapper{
+				margin-top: 0;
+		}
+		
+		.content{
+			margin:0;
+			width:100%;
+			overflow: hidden !important;
+			
+			article{
+				transition:none !important;
+				transform: translateY(0) !important;
+				width: 100%;
+				height: auto;
+				position: relative !important;
+				top:auto !important;
+				left: auto !important;
+				margin-bottom: 0;
+			}
+		}
+		.pagination{
+			margin-bottom: 0;
+			
+			a{
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+		}
+	}
 }
 

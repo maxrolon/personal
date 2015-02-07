@@ -49,10 +49,15 @@
 	a{transition: color 0.3s linear 0s}
 }
 
-@media (max-width:$screen-xs){
+@media (max-width:$screen-sm){
  .header{
 	 position: static;
 	 border:0;
+	 h1{
+		 width: 100%;
+		 overflow: hidden;
+	 }
+	 
 	 h1:before{
 		 font-size: 1.6em;
 		 text-indent: -20px;

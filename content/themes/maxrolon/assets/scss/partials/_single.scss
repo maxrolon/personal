@@ -92,7 +92,9 @@
 
 @media (max-width:$screen-sm){
  .post-template .content{
-	 width: 290px;
+	 width: 100%;
+	 padding: 0 20px;
+	 //.excerpt, .count, .transperant,.post-header{padding-left:20px;padding-right: 20px;}
 	 
 	 img{
 		 width: 100%;
@@ -106,5 +108,6 @@
 	 //.wrapper{margin-top: 130px}
 	 .post-header{padding-top: 10px}
 	 .text + p img:first-child{display: none}
+	 
  } 
 }
