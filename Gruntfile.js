@@ -662,6 +662,15 @@ var _              = require('lodash'),
                         params: '--init'
                     }
                 }
+            },
+            
+            forever: {
+              server: {
+                options: {
+                  index: 'index.js',
+                  logDir: 'forever-log'
+                }
+              }
             }
         };
 
@@ -1112,7 +1121,15 @@ var _              = require('lodash'),
             ' - Clean out unnecessary files (travis, .git*, etc)\n' +
             ' - Zip files in release-folder to dist-folder/#{version} directory',
             ['init', 'concat:prod', 'copy:prod', 'emberBuildProd', 'uglify:release', 'clean:release', 'copy:release', 'compress:release']);
+            
+        grunt.loadNpmTasks('grunt-forever');
+    
+        grunt.registerTask('forever-start', 'forever:server:start');
+        
+        grunt.registerTask('forever-stop', 'forever:server:stop');
     };
+    
+    
 
 // Export the configuration
 module.exports = configureGrunt;

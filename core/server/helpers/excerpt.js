@@ -24,12 +24,16 @@ excerpt = function (options) {
 		excerpt = String(this.html).match(/<excerpt[^>]*>([\s\S]*?)<\/excerpt>/);
     excerpt = excerpt ? excerpt[1] : String(this.html).replace(/<\/?[^>]+>/gi, '');
     excerpt = String(excerpt)
-    .replace(/(\r|\n|\r|<br[ ]?\/?>|[ ]{2,999})+/gm, ' ')
-    .replace(/<(?:.[^>]*)>/gm, ' ');
+    .replace(/(\r|\n|\r|<br[ ]?\/?>|[ ]{2,999})+/gm, ' ');
+   
     /*jslint regexp:false */
 
     if (!truncateOptions.words && !truncateOptions.characters) {
         truncateOptions.words = 9999;
+    }
+    
+    if (truncateOptions.characters){
+      excerpt = excerpt.replace(/<(?:.[^>]*)>/gm, ' ');
     }
     
     return new hbs.handlebars.SafeString(
