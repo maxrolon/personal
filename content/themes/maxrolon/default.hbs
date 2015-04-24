@@ -20,6 +20,12 @@
     
     {{ghost_head}}
     
+    <script type="text/javascript">
+	    function imgLoaded(el){
+		    el.className+=' show';
+	    }
+    </script>
+    
     
 </head>
 <body class="{{body_class}}">
@@ -42,7 +48,7 @@
   {{ghost_foot}}
 
   {{! The main JavaScript file for Casper }}
-  <script type="text/javascript" src="http://isotope.metafizzy.co/isotope.pkgd.js"></script>
+  <script type="text/javascript" src="{{asset "js/vendor.js"}}"></script>
   <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
 
 </body>

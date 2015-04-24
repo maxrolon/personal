@@ -48,8 +48,6 @@ content = function (options) {
       this.html = text + img;
     }
     
-    
-    
     if (truncateOptions.hasOwnProperty('words') || truncateOptions.hasOwnProperty('characters')) {
         // Legacy function: {{content words="0"}} should return leading tags.
         if (truncateOptions.hasOwnProperty('words') && truncateOptions.words === 0) {
@@ -63,8 +61,12 @@ content = function (options) {
         );
     }
     
-    
-    this.html = String(this.html).replace(/(<p><\/p>)+/gm, '');
+    /**
+     * Add onload event to all images
+     *
+     */
+     this.html = this.html.replace(/<img(.[^>]*)>/g,'<img$1 onload="imgLoaded(this)">');
+     this.html = String(this.html).replace(/(<p><\/p>)+/gm, '');
     
     return new hbs.handlebars.SafeString(this.html);
 };

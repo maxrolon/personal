@@ -11,6 +11,8 @@ pids
 logs
 results
 
+content/themes/maxrolon/assets/js/vendor/**/*
+
 content/images
 content/data/ghost-dev.db
 config.js

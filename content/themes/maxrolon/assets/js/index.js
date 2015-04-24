@@ -1,5 +1,20 @@
+function shuffleArray(array) {
+	for (var i = array.length - 1; i > 0; i--) {
+			var j = Math.floor(Math.random() * (i + 1));
+			var temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+	}
+	return array;
+}
+
 jQuery(document).ready(function($){
 	
+	/*
+	 * Init shit
+	 * @params	void
+	 * @void	void
+	 */
 	var app = {
 		init: function(){
 				$(document).scroll(this.header);
@@ -8,6 +23,12 @@ jQuery(document).ready(function($){
 				this.wordcount();
 				
 		},
+		
+		/*
+		 * Change header class to trigger compression animation
+		 * @params	void
+		 * @void	void
+		 */
 		header: function(){
 			if($(window).scrollTop() > 50){ 
 				$('.header').addClass("scrolled") 
@@ -15,6 +36,12 @@ jQuery(document).ready(function($){
 				$('.header').removeClass("scrolled");
 			};
 		},
+		
+		/*
+		 * Feedback word count to user on single page
+		 * @params	void
+		 * @void	void
+		 */
 		wordcount: function(){
 			var $el = {
 				excerpt: $('.excerpt'),
@@ -45,6 +72,12 @@ jQuery(document).ready(function($){
 				
 			});
 		},
+		
+		/*
+		 * Trigger isotope layout
+		 * @params	void
+		 * @void	void
+		 */
 		isotope: function(){
 			var $el = $('#content');
 			if ($el.length){
@@ -54,11 +87,20 @@ jQuery(document).ready(function($){
 						columnWidth: 310
 					}
 				});
-				setTimeout(function(){
-					$el.addClass('show');
-				}, 50);
+				this.animateInit();
 			}
 		},
+		
+		animateInit:function(){
+			new TimelineMax()
+			.staggerFromTo('article.post',0.2,{css:{opacity:0,y:-5}},{delay:0.2,css:{opacity:1,x:0}},0.1);
+		},
+		
+		/*
+		 * Scroll to top of page
+		 * @params	void
+		 * @void	void
+		 */
 		scrollTop: function(){
 		 $('.up').on('click',function(){
 			 $('html, body').animate({scrollTop:0});

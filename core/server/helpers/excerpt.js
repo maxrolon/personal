@@ -23,7 +23,9 @@ excerpt = function (options) {
    
 		excerpt = String(this.html).match(/<excerpt[^>]*>([\s\S]*?)<\/excerpt>/);
     excerpt = excerpt ? excerpt[1] : String(this.html).replace(/<\/?[^>]+>/gi, '');
-    excerpt = String(excerpt).replace(/(\r|\n|\r|<br[ ]?\/?>|[ ]{2,999})+/gm, ' ');
+    excerpt = String(excerpt)
+    .replace(/(\r|\n|\r|<br[ ]?\/?>|[ ]{2,999})+/gm, ' ')
+    .replace(/<(?:.[^>]*)>/gm, ' ');
     /*jslint regexp:false */
 
     if (!truncateOptions.words && !truncateOptions.characters) {

@@ -124,6 +124,15 @@ var _              = require('lodash'),
                     ],
                     tasks: ['css_theme']
                 },
+                js_theme: {
+                    options: {
+                        livereload: true
+                    },
+                    files: [
+                        'content/themes/maxrolon/assets/js/modules/**/*.js'
+                    ],
+                    tasks: ['uglify:maxrolon_main']
+                },
                 livereload: {
                     files: [
                         'content/themes/casper/assets/css/*.css',
@@ -625,6 +634,23 @@ var _              = require('lodash'),
                         'core/built/scripts/vendor.min.js': 'core/built/scripts/vendor.js',
                         'core/built/scripts/ghost.min.js': 'core/built/scripts/ghost.js'
                     }
+                },
+                maxrolon: {
+                   files: {
+                    'content/themes/maxrolon/assets/js/vendor.js': [
+                      'content/themes/maxrolon/assets/js/vendor/gsap/src/minified/TweenMax.min.js',
+                      'content/themes/maxrolon/assets/js/vendor/isotope/dist/isotope.pkgd.min.js'
+                    ]
+                  },
+                  options: {
+                    mangle: false
+                  },
+               },
+               options: {
+                  sourceMap: true,
+                  mangle: false,
+                  beautify: true,
+                  compress: false
                 }
             },
 
