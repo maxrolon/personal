@@ -21,8 +21,12 @@ content = function (options) {
     
     if (truncateOptions.imageOnly){
 	    var img = String(this.html).match(/<img[^>]*([\s\S]*?)>/);
-	    return new hbs.handlebars.SafeString(img[0]);
-    }
+	    if (img){
+		    return new hbs.handlebars.SafeString(img[0]);
+	    } else {
+		    return '';
+	    }
+	  }
     
     /**
      * As a user can insert a custom excerpt inside 
